@@ -626,7 +626,7 @@ footer {
     display: inline-block;
     width: 35px;
     height: 35px;
-    background-color: rgba(255, 255, 255,);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     margin-right: 10px;
     transition: background-color 0.3s;
@@ -905,4 +905,135 @@ footer {
 .swoop.active {
   opacity: 1;
   transform: translateY(0) rotate(0deg) scale(1);
+}
+
+
+
+/* MOBILE HEADER FIX */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    header .logo img {
+        width: 60px;
+        height: auto;
+    }
+
+    nav ul {
+        display: none; /* Hide menu for now */
+    }
+
+    .order-btn {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+/* HERO MOBILE FIX */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-image-container img {
+        width: 70%;
+        height: auto;
+    }
+}
+
+/* FLAVOR SECTION MOBILE FIX */
+@media (max-width: 768px) {
+    .flavor-display-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .flavor-image-col,
+    .flavor-options-col {
+        width: 100%;
+    }
+
+    .flavor-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* ABOUT MOBILE FIX */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .factory-image-placeholder img {
+        width: 90%;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .features {
+        gap: 15px;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* CONTACT MOBILE FIX */
+@media (max-width: 768px) {
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .message-form-col,
+    .contact-info-col {
+        width: 100%;
+    }
+
+    form input,
+    form textarea {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .send-message-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* FOOTER MOBILE FIX */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
 }
