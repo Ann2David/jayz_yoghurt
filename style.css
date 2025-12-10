@@ -1,0 +1,908 @@
+/* Color Variables */
+:root {
+    --color-primary: #e22ba2; /* Purple/Violet */
+    --color-secondary: #ff69b4; /* Pink/Magenta */
+    --color-background-vanilla: #fefcf3; /* Very light creamy vanilla */
+    --color-background-strawberry: #fff6f8; /* Very light pink */
+    --color-text-dark: #1f1f1f;
+    --color-text-light: #ffffff;
+    --color-gray-light: #f5f5f5;
+    --color-gray-medium: #c2c2c2;
+
+    /* Flavor Specific Colors */
+    --color-vanilla-accent: #fcd757; /* Yellowish for Vanilla */
+    --color-strawberry-accent: #ff91a4; /* Pinkish for Strawberry */
+
+    /* Contact Form & Footer Colors */
+    --color-form-bg: #fdf6ff;
+    --color-footer-bg: #1f1f1f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-dark);
+    /* Initial state set to vanilla background */
+    background-color: var(--color-background-vanilla);
+    /* Essential for the color-changing effect */
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* --- Utility Classes --- */
+.purple-text {
+    color: var(--color-primary);
+}
+
+/* --- Header & Navigation --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: inherit; /* Inherits background for seamless transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+.order-btn {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: var(--color-text-light);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    padding: 80px 80px 100px 80px;
+    min-height: 80vh;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.action-btn {
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.shop-btn {
+    background-color: #ffc107; /* Yellow/Orange */
+    color: var(--color-text-dark);
+    border: none;
+}
+
+.story-btn {
+    background-color: transparent;
+    border: 2px solid var(--color-gray-medium);
+    color: var(--color-text-dark);
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-gray-medium);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: var(--color-text-dark);
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 40px;
+}
+
+.yogurt-image {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-background-vanilla); /* Background of the image container */
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-placeholder {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-gray-light);
+    border-radius: 10px;
+    color: #888;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.flavor-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-vanilla-accent);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Flavor Showcase Section --- */
+.flavor-showcase {
+    padding: 80px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.flavor-display-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+}
+
+.flavor-image-col {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flavor-options-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flavor-image-wrapper {
+    width: 100%;
+    max-width: 450px;
+    /* This wrapper will hold the background color */
+    background-color: var(--color-background-strawberry);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Transition for the slide effect */
+    transition: all 0.5s ease-in-out; 
+}
+
+/* Base style for the dynamic image content */
+.current-flavor-image {
+    text-align: center;
+    /* Transition for content slide-in effect */
+    transition: opacity 0.3s, transform 0.3s; 
+}
+
+.flavor-image-wrapper .image-placeholder {
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.flavor-image-wrapper h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.flavor-image-wrapper p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.price-tag {
+    display: inline-block;
+    background-color: var(--color-strawberry-accent); /* Strawberry default */
+    color: var(--color-text-light);
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    transition: background-color 0.5s;
+}
+
+.nutrition-facts {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-gray-light);
+}
+
+.fact {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+.fact strong {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+/* Flavor Cards */
+.flavor-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--color-gray-light);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.flavor-card.active {
+    background-color: var(--color-text-light);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-gray-medium);
+}
+
+.flavor-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.vanilla-icon {
+    background-color: var(--color-vanilla-accent);
+}
+
+.strawberry-icon {
+    background-color: var(--color-strawberry-accent);
+}
+
+.flavor-details {
+    flex-grow: 1;
+}
+
+.flavor-details h4 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.flavor-details p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.flavor-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.flavor-price .per-bottle {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #999;
+}
+
+/* --- About Section --- */
+.about-section {
+    display: flex;
+    align-items: center;
+    padding: 100px 80px;
+    background: linear-gradient(180deg, var(--color-background-vanilla) 50%, var(--color-form-bg) 50%);
+}
+
+.about-content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 40px;
+}
+
+.about-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.about-content > p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    background-color: var(--color-form-bg);
+    padding: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.feature-item h4 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.feature-item p {
+    color: #777;
+}
+
+.about-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-left: 40px;
+}
+
+.factory-image-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: var(--color-gray-light);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-style: italic;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-badge {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background: var(--color-text-light);
+    color: var(--color-primary);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 80px;
+    background-color: var(--color-form-bg);
+    text-align: center;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 80px;
+    margin-top: 50px;
+    text-align: left;
+    max-width: 1200px;
+    margin: 50px auto 0;
+}
+
+.message-form-col {
+    flex: 1;
+    background-color: var(--color-text-light);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.message-form-col h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="tel"],
+.input-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 8px;
+    background-color: var(--color-form-bg);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.input-group textarea {
+    resize: none;
+}
+
+.send-message-btn {
+    width: 100%;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: var(--color-text-light);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.contact-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-info-col h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--color-text-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    background-color: var(--color-form-bg);
+    padding: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.map-placeholder {
+    height: 250px;
+    background-color: var(--color-gray-light);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-text-light);
+    padding: 60px 80px 20px 80px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-col {
+    max-width: 300px;
+}
+
+.footer-col h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-col p {
+    margin-bottom: 20px;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255,);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+    /* Placeholder for actual icons */
+    text-align: center;
+    line-height: 35px;
+    font-size: 1rem;
+}
+
+.social-icons .facebook::after { content: 'f'; }
+.social-icons .instagram::after { content: 'i'; }
+.social-icons .tiktok::after { content: 't'; }
+
+
+.social-icons a:hover {
+    background-color: var(--color-secondary);
+}
+
+.quicklinks-col ul {
+    list-style: none;
+}
+
+.quicklinks-col a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.quicklinks-col a:hover {
+    color: var(--color-secondary);
+}
+
+.contactinfo-col p {
+    color: #ccc;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- Floating Button --- */
+
+
+/* --- Dynamic Theme Classes (for JavaScript) --- */
+
+/* Changes the body background */
+.theme-vanilla {
+    background-color: var(--color-background-vanilla) !important;
+}
+
+.theme-strawberry {
+    background-color: var(--color-background-strawberry) !important;
+}
+
+/* Changes the image container and price tag accent color */
+.flavor-card-vanilla .flavor-image-wrapper {
+    background-color: var(--color-background-vanilla);
+}
+.flavor-card-vanilla .price-tag {
+    background-color: var(--color-vanilla-accent);
+}
+
+.flavor-card-strawberry .flavor-image-wrapper {
+    background-color: var(--color-background-strawberry);
+}
+.flavor-card-strawberry .price-tag {
+    background-color: var(--color-strawberry-accent);
+}
+
+/* Hide and Slide-in Effect */
+.slide-out {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 8%;
+    background: #F7EEDC;  /* Vanilla default */
+    transition: background 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+
+.yogurt-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.yogurt-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.yogurt-img {
+    width: 100%;
+}
+
+.flavor-tag {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.dots {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    border-radius: 50%;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #000;
+}
+
+.yogurt-img {
+    width: auto;          /* keep aspect ratio */
+    max-width: 300px;     /* adjust as needed */
+    max-height: 350px;    /* adjust as needed */
+    object-fit: contain;  /* make sure the image scales correctly */
+    display: block;
+    margin: 0 auto;       /* center horizontally */
+    transition: transform 0.5s ease; /* for subtle hover effects if you want */
+}
+
+.yogurt-img:hover {
+    transform: scale(1.05); /* slightly bigger on hover */
+}
+
+.yogurt-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  /* centers vertically */
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero-image-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .yogurt-img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
+
+
+
+
+.logo img {
+  height: 50px;     /* Adjust this number to make it smaller or larger */
+  width: auto;      /* Keeps the image from stretching */
+  object-fit: contain;
+  display: block;   /* Removes extra white space */
+}
+
+
+
+
+.about-image-container {
+  width: 100%;
+  max-width: 450px;   /* control how wide the image container should be */
+}
+
+.factory-image-placeholder {
+  position: relative;
+  width: 100%;
+  height: 350px;      /* adjust this height to your taste (300px–450px is ideal) */
+  border-radius: 20px;
+  overflow: hidden;   /* this will crop extra image parts instead of stretching */
+}
+
+.factory-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* makes image fill container beautifully */
+  object-position: center;
+  border-radius: 20px;
+}
+
+
+
+
+
+
+
+.image-placeholder {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height: 220px; /* reserve space so layout doesn't jump */
+}
+
+.flavor-img {
+  max-width: 260px;
+  max-height: 260px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display:block;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform .28s ease, opacity .28s ease;
+}
+
+.flavor-img.hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(.98);
+}
+
+.flavor-card { cursor: pointer; padding: 12px; border-radius:8px; transition: box-shadow .2s ease; }
+.flavor-card.active { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+
+
+
+
+.swoop {
+  opacity: 0;
+  transform: translateY(60px) rotate(-4deg) scale(0.95);
+  transition: all 1s cubic-bezier(0.22, 0.61, 0.36, 1); /* smooth swoop */
+}
+
+.swoop.active {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg) scale(1);
+}
