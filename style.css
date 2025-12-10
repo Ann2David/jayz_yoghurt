@@ -583,17 +583,6 @@ nav a:hover {
     font-size: 0.95rem;
 }
 
-.map-placeholder {
-    height: 250px;
-    background-color: var(--color-gray-light);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #888;
-    font-style: italic;
-    margin-top: 10px;
-}
 
 /* --- Footer --- */
 footer {
